@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@font-face {
+  font-family: "Airb";
+  src: url("./fonts/app.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Airb Med";
+  src: url("./fonts/airbn_medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Airb Light";
+  src: url("./fonts/airb2.otf") format("opentype");
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-pallete-1: #5e61fa;
+  --color-pallete-2: #8c52ff;
+  --color-pallete-3: #000000;
+  --color-pallete-4: #a0c6d8;
+  --color-pallete-5: #3c1542;
+  --color-pallete-6: #9ce16f;
+  --color-pallete-7: #213512;
+  --font-airblight: "Airb Light", Arial, Helvetica, sans-serif;
+  --font-airb-med: "Airb Med", Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: var(--background);
+  font-family: "Airb", Arial, Helvetica, sans-serif;
+}
