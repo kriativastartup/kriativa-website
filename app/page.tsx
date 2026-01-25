@@ -220,11 +220,101 @@ export default function Home() {
                       </div>
                     ))
                   }
-
                 </div>
               </div>
             </div>
           </section>
+        </section>
+
+        <section className="mt-36">
+          <header className="max-w-xl mx-auto text-center">
+            <h3 className="text-5xl font-bold text-gray-900">
+              Serviços
+            </h3>
+          </header>
+          <div className="max-w-6xl mb-20 mx-auto mt-14 grid grid-cols-3 gap-5">
+            <div className="h-104 overflow-hidden flex flex-col justify-between  rounded-2xl border border-gray-200">
+              <header className="p-6">
+                <div className="flex items-center justify-between">
+                  <span>
+                    <Globe className="inline-block me-2 text-pallete-2 size-7" size={18} />
+                  </span>
+                  <button className="px-4  text-white  text-md flex items-center justify-center font-airblight bg-pallete-2  font-semibold py-2 rounded-full">
+                    Solicitar
+                  </button>
+                </div>
+                <h4 className="font-semibold pt-5 text-xl">
+                  Desenvolvimento Web
+                </h4>
+                <p className="pt-4  text-zinc-500">
+                  Criamos websites modernos, responsivos e otimizados para SEO que impulsionam sua presença online e engajam seus clientes.
+                </p>
+              </header>
+              <footer className="px-5 mt-10">
+                <Image
+                  src="/images/website-mock.png"
+                  alt="Serviço de Desenvolvimento Web"
+                  width={400}
+                  height={200}
+                  className="rounded-b-2xl border rounded-2xl border-gray-200 shadow-2xl shadow-gray-400 object-cover w-full h-48"
+                />
+              </footer>
+            </div>
+            <div className="h-104 overflow-hidden flex flex-col justify-between  rounded-2xl border border-gray-200">
+              <header className="p-6">
+                <div className="flex items-center justify-between">
+                  <span>
+                    <Proportions className="inline-block me-2 text-pallete-2 size-7" size={18} />
+                  </span>
+                  <button className="px-4  text-white  text-md flex items-center justify-center font-airblight bg-pallete-2  font-semibold py-2 rounded-full">
+                    Solicitar
+                  </button>
+                </div>
+                <h4 className="font-semibold pt-5 text-xl">
+                  Aplicações Móveis
+                </h4>
+                <p className="pt-4  text-zinc-500">
+                  Criamos aplicações móveis modernas, responsivas e otimizadas para SEO que impulsionam sua presença online e engajam seus clientes.
+                </p>
+              </header>
+              <footer className="px-5 ">
+                <Image
+                  src="/images/app-mock.png"
+                  alt="Serviço de Desenvolvimento Web"
+                  width={800}
+                  height={800}
+                  className="rounded-b-2xl rounded-2xl w-full -mt-7"
+                />
+              </footer>
+            </div>
+            <div className="h-104 overflow-hidden flex flex-col justify-between  rounded-2xl border border-gray-200">
+              <header className="p-6">
+                <div className="flex items-center justify-between">
+                  <span>
+                    <MonitorDot className="inline-block me-2 text-pallete-2 size-7" size={18} />
+                  </span>
+                  <button className="px-4  text-white  text-md flex items-center justify-center font-airblight bg-pallete-2  font-semibold py-2 rounded-full">
+                    Solicitar
+                  </button>
+                </div>
+                <h4 className="font-semibold pt-5 text-xl">
+                  Sistemas Desktop
+                </h4>
+                <p className="pt-4  text-zinc-500">
+                  Desenvolvemos sistemas desktop robustos e seguros, projetados para otimizar processos empresariais e melhorar a eficiência operacional.
+                </p>
+              </header>
+              <footer className="px-5 mt-10">
+                <Image
+                  src="/images/desktop-mock.png"
+                  alt="Serviço de Sistemas Desktop"
+                  width={400}
+                  height={200}
+                  className="rounded-b-2xl border rounded-2xl border-gray-200 shadow-2xl shadow-gray-400 object-cover w-full h-48"
+                />
+              </footer>
+            </div>
+          </div>
         </section>
       </main>
     </div>
