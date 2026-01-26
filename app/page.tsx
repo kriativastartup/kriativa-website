@@ -109,7 +109,8 @@ export default function Home() {
             <div className="flex mt-10 items-center gap-4">
               <button className="px-5 text-white  text-md flex items-center justify-center font-airblight bg-pallete-1  font-semibold py-3 rounded-full">
                 <SquareKanban className="inline-block me-2" size={16} />
-                Idealize seu projeto
+                Idealize seu projetocat ~/.ssh/id_himersus.pub
+{/* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDg9Ec23j9mn56epLpyUUwOaGvOvyVdL5wfO2nOlHy0N himersusdevelopment@gmail.com */}
               </button>
               <button className="px-5 text-black  text-md font-airblight border border-gray-200  font-semibold py-3 rounded-full">
                 Falar com um Especialista
