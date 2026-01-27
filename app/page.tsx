@@ -13,6 +13,32 @@ const navbarItemsLinks = [
   { name: "Política", href: "#" },
 ]
 
+const processSteps = [
+  { step: "Entendimento", description: "Analisamos sua ideia e objetivos" },
+  { step: "Planejamento", description: "Definimos a melhor solução" },
+  { step: "Desenvolvimento", description: "Criamos com qualidade e foco no detalhe" },
+  { step: "Entrega", description: "Solução testada e pronta para uso" },
+];
+
+const whyChooseUsItems = [
+  {
+    title: "Comunicação clara e constante", description: "Mantemos você informado em cada etapa do projeto com transparência e responsabilidade",
+    img: "/images/use1.jpg"
+  },
+  {
+    title: "Compromisso com prazos", description: "Entregamos seus projetos dentro do prazo estabelecido, sem comprometer a qualidade",
+    img: "/images/use2.jpg"
+  },
+  {
+    title: "Design moderno e funcional", description: "Criamos interfaces intuitivas e visualmente atraentes que proporcionam excelente experiência ao usuário",
+    img: "/images/use3.jpg"
+  },
+  {
+    title: "Suporte e acompanhamento contínuo", description: "Oferecemos suporte técnico e acompanhamento pós-lançamento para garantir o sucesso contínuo",
+    img: "/images/use4.jpg"
+  },
+];
+
 const solutionsItems = [
   { title: "Soluções personalizadas" },
   { title: "Tecnologia atual e escalável" },
@@ -109,8 +135,7 @@ export default function Home() {
             <div className="flex mt-10 items-center gap-4">
               <button className="px-5 text-white  text-md flex items-center justify-center font-airblight bg-pallete-1  font-semibold py-3 rounded-full">
                 <SquareKanban className="inline-block me-2" size={16} />
-                Idealize seu projetocat ~/.ssh/id_himersus.pub
-{/* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDg9Ec23j9mn56epLpyUUwOaGvOvyVdL5wfO2nOlHy0N himersusdevelopment@gmail.com */}
+                Idealize seu projeto
               </button>
               <button className="px-5 text-black  text-md font-airblight border border-gray-200  font-semibold py-3 rounded-full">
                 Falar com um Especialista
@@ -120,14 +145,11 @@ export default function Home() {
           <section className="relative flex items-start justify-start">
             <AnimatePresence mode="wait">
               <motion.div
-                key={index}
+                key={current.image}
                 initial={{ x: 80, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -80, opacity: 0 }}
-                transition={{
-                  duration: 0.45,
-                  ease: "easeInOut",
-                }}
+                transition={{ duration: 0.45, ease: "easeInOut" }}
                 className="relative w-full"
               >
                 <Image
@@ -135,10 +157,9 @@ export default function Home() {
                   alt={current.label}
                   width={600}
                   height={300}
+                  priority // 👈 MUITO IMPORTANTE
                   className="rounded-2xl"
                 />
-
-                {/* Label flutuante */}
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
@@ -192,7 +213,7 @@ export default function Home() {
               <div className="max-w-xl">
                 <h3 className="text-5xl font-semibold text-white">
                   <span className="text-pallete-2">
-                    Kriativa</span>, sua parceira em inovação digital.
+                    Kriativuz</span>, sua parceira em inovação digital.
                 </h3>
                 <div>
                   <h6 className="text-white mt-4 mb-2 text-md">
@@ -238,9 +259,9 @@ export default function Home() {
               <header className="p-6">
                 <div className="flex items-center justify-between">
                   <span>
-                    <Globe className="inline-block me-2 text-pallete-2 size-7" size={18} />
+                    <Globe className="inline-block me-2 text-pallete-1 size-7" size={18} />
                   </span>
-                  <button className="px-4  text-white  text-md flex items-center justify-center font-airblight bg-pallete-2  font-semibold py-2 rounded-full">
+                  <button className="px-4  text-white  text-md flex items-center justify-center font-airblight bg-pallete-1  font-semibold py-2 rounded-full">
                     Solicitar
                   </button>
                 </div>
@@ -265,9 +286,9 @@ export default function Home() {
               <header className="p-6">
                 <div className="flex items-center justify-between">
                   <span>
-                    <Proportions className="inline-block me-2 text-pallete-2 size-7" size={18} />
+                    <Proportions className="inline-block me-2 text-pallete-1 size-7" size={18} />
                   </span>
-                  <button className="px-4  text-white  text-md flex items-center justify-center font-airblight bg-pallete-2  font-semibold py-2 rounded-full">
+                  <button className="px-4  text-white  text-md flex items-center justify-center font-airblight bg-pallete-1  font-semibold py-2 rounded-full">
                     Solicitar
                   </button>
                 </div>
@@ -292,9 +313,9 @@ export default function Home() {
               <header className="p-6">
                 <div className="flex items-center justify-between">
                   <span>
-                    <MonitorDot className="inline-block me-2 text-pallete-2 size-7" size={18} />
+                    <MonitorDot className="inline-block me-2 text-pallete-1 size-7" size={18} />
                   </span>
-                  <button className="px-4  text-white  text-md flex items-center justify-center font-airblight bg-pallete-2  font-semibold py-2 rounded-full">
+                  <button className="px-4  text-white  text-md flex items-center justify-center font-airblight bg-pallete-1  font-semibold py-2 rounded-full">
                     Solicitar
                   </button>
                 </div>
@@ -316,6 +337,91 @@ export default function Home() {
               </footer>
             </div>
           </div>
+        </section>
+
+        <section
+          style={{
+            backgroundImage: `url('/images/back_ope2.jpg')`
+          }}
+          className="max-w-[85%] overflow-hidden rounded-3xl h-96 bg-cover bg-center my-36 mx-auto">
+          <div className="w-full p-14 gap-10  h-full backdrop-blur-lg rounded-4xl flex justify-between items-center">
+            <header className="max-w-xl">
+              <h5 className="text-5xl text-white whitespace-nowrap font-semibold">
+                Processo de<br />  Desenvolvimento
+              </h5>
+              <h6 className="text-lg text-white mt-4">
+                Criamos soluções digitais através de um processo estruturado e eficiente, garantindo qualidade e satisfação em cada etapa.
+              </h6>
+            </header>
+            <footer className="grid grid-cols-2 gap-5">
+              {
+                processSteps.map((item, index) => (
+                  <div key={index} className="flex items-center pb-4 border-white/15 backdrop-blur-2xl justify-between border-b gap-6">
+                    <div>
+
+                    </div>
+                    <div className="flex flex-col text-end items-end">
+                      <h4 className="font-semibold text-white text-xl">
+                        {item.step}
+                      </h4>
+                      <p className="text-white/80 mt-1 text-[15px]">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))
+              }
+
+            </footer>
+          </div>
+
+        </section>
+        <section className="mt-48 max-w-[85%] grid grid-cols-1 mx-auto w-full">
+          <header className="px-14 text-center mx-auto  max-w-5xl">
+            <h5 className="text-5xl font-bold ">
+              Escolha a inovação. Escolha a Kriativuz.
+            </h5>
+            {/* <div className="max-w-3xl mx-auto">
+              <p className="pt-6">
+                Eleve sua presença digital até 200%
+              </p>
+            </div> */}
+          </header>
+          <div className="grid w-full grid-cols-4 gap-3 my-16 max-w-[95%] mx-auto">
+            {
+              whyChooseUsItems.map((item, index) => (
+                <div className=" p-6 bg-white shadow-2xl flex flex-col justify-between rounded-3xl shadow-gray-200 border border-gray-200" key={index}>
+
+                  <header className="border-t pt-4 border-gray-200 mt-3">
+                    <h6 className="text-lg">
+                      {
+                        item.title
+                      }
+                    </h6>
+                    <p className="text-zinc-700 text-[14px] pt-3">
+                      {item.description}
+                    </p>
+                  </header>
+
+                  <div className="mt-5 flex flex-col items-end justify-end h-80 rounded-lg bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url('${item.img}')`
+                    }}
+                  >
+                    <div className="bg-white px-6 py-2 rounded-tl-xl">
+                      <h6 className="font-semibold text-xl text-pallete-1">
+                        {
+                          index + 1 < 10 ? `0${index + 1}` : index + 1
+                        }
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+
+          </div>
+
         </section>
       </main>
     </div>
