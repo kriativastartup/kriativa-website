@@ -5,12 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import FormSheet from "@/components/app-components/form-sheet";
 
 const navbarItemsLinks = [
   { name: "Início", href: "#" },
   { name: "Quem Somos", href: "#" },
   { name: "Serviços", href: "#" },
-  { name: "Política", href: "#" },
+  { name: "Como Trabalhamos", href: "#" },
 ]
 
 const processSteps = [
@@ -27,7 +28,7 @@ const whyChooseUsItems = [
   },
   {
     title: "Compromisso com prazos", description: "Entregamos seus projetos dentro do prazo estabelecido, sem comprometer a qualidade",
-    img: "/images/use2.jpg"
+    img: "/images/use2_.jpg"
   },
   {
     title: "Design moderno e funcional", description: "Criamos interfaces intuitivas e visualmente atraentes que proporcionam excelente experiência ao usuário",
@@ -85,7 +86,8 @@ export default function Home() {
   return (
     <div>
       <header>
-        <div className="flex w-full items-center justify-around py-3 border-b border-gray-200">
+        <FormSheet open={true} onOpenChange={() => { }} />
+        <div className="flex fixed top-0 left-0 bg-white z-50 w-full items-center justify-around py-3 border-b border-gray-200">
           <nav className="max-w-[85%] mx-auto w-full flex items-center justify-between">
             <div className="flex items-end gap-16">
               <Image
@@ -116,7 +118,7 @@ export default function Home() {
           </nav>
         </div>
 
-        <section className="max-w-[85%] mx-auto grid gap-14 items-start grid-cols-[63%_32%] mt-24">
+        <section className="max-w-[85%] mx-auto grid gap-14 items-start grid-cols-[63%_32%] mt-48">
           <div>
             <button className="flex items-center text-pallete-7 mb-6 border border-pallete-7/10 text-[15px] font-airb-med justify-center bg-pallete-6/40 rounded-full px-4 py-2">
               <Sparkle className="inline-block mr-1" size={16} />
@@ -424,6 +426,56 @@ export default function Home() {
 
         </section>
       </main>
+
+
+      <footer className="bg-gray-100 pt-6 rounded-base mt-16 shadow-xs">
+        <div className="w-full max-w-[85%] mx-auto p-4 md:py-8">
+          <div className="sm:flex sm:items-center sm:justify-between">
+            <Link href="https://flowbite.com/" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+              <Image
+                src="/icons/simple_color_1.svg"
+                alt="Kriativa Logo"
+                width={150}
+                height={50}
+                className="h-auto w-32  object-contain"
+              />
+            </Link>
+            <ul className="flex flex-wrap items-center gap-6 mb-6 text-sm font-medium text-body sm:mb-0">
+              <li>
+                <Link href={'/'} className="hover:underline  me-4 md:me-6 transition-all text-zinc-700 hover:text-black">
+                  Quem Somos
+                </Link>
+              </li>
+              <li>
+                <Link href={'/'} className="hover:underline  me-4 md:me-6 transition-all text-zinc-700 hover:text-black">
+                  Serviços
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline text-zinc-700 font-medium text-[14px] transition-all hover:text-black">
+                  Solicitar Orçamento
+                </Link>
+              </li>
+
+            </ul>
+          </div>
+          <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+          <div className="w-full flex items-center justify-between">
+            <span className="block text-sm text-body sm:text-center">© 2025
+              <Link href="/" className="hover:underline">
+                Kriativuz
+              </Link>.
+              Todos os direitos reservados.
+            </span>
+            <div className="flex items-center gap-10 justify-end">
+              <Link href="#" className="hover:underline text-zinc-700 font-medium text-[14px] transition-all hover:text-black">
+                Termos de Serviço
+              </Link>
+              <Link href="#" className="hover:underline font-medium text-zinc-700 text-[14px] transition-all hover:text-black">Contacte-nos</Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
