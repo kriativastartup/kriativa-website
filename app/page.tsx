@@ -70,6 +70,7 @@ const imagesSlice = [
 export default function Home() {
 
   const [index, setIndex] = useState(0);
+  const [open, setOpen] = useState(false);
 
   // ⏱ Auto slide
   useEffect(() => {
@@ -86,7 +87,7 @@ export default function Home() {
   return (
     <div>
       <header>
-        <FormSheet open={true} onOpenChange={() => { }} />
+        <FormSheet open={open} onOpenChange={setOpen} />
         <div className="flex fixed top-0 left-0 bg-white z-50 w-full items-center justify-around py-3 border-b border-gray-200">
           <nav className="max-w-[85%] mx-auto w-full flex items-center justify-between">
             <div className="flex items-end gap-16">
@@ -111,7 +112,9 @@ export default function Home() {
               <button className="px-4 bg-white text-black  border-gray-200 text-[14px] font-airblight font-semibold py-2.5 rounded-full">
                 Contacte-nos
               </button>
-              <button className="px-4 bg-pallete-1 text-white text-[14px] font-airblight font-semibold py-2.5 rounded-full">
+              <button
+                onClick={() => setOpen(true)}
+                className="px-4 transition-all hover:bg-pallete-1/80 bg-pallete-1 text-white text-[14px] font-airblight font-semibold py-2.5 rounded-full">
                 Solicitar Orçamento
               </button>
             </div>
@@ -159,7 +162,7 @@ export default function Home() {
                   alt={current.label}
                   width={600}
                   height={300}
-                  priority // 👈 MUITO IMPORTANTE
+                  priority
                   className="rounded-2xl"
                 />
                 <motion.div
