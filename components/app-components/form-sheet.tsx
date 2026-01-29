@@ -9,7 +9,7 @@ import {
     SheetPopup,
     SheetTitle,
 } from "@/components/ui/sheet";
-import React from "react";
+import React, { useEffect } from "react";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 import { Button } from "@/components/ui/button"
@@ -29,6 +29,7 @@ import { ScrollArea } from "../ui/scroll-area";
 interface FormSheetProps {
     open: boolean;
     onOpenChange: React.Dispatch<React.SetStateAction<boolean>>;
+    service: "websites" | "mobile_apps" | "desktop_apps"
 }
 
 const stepsItems = [
@@ -58,10 +59,15 @@ const typeService = [
     }
 ]
 
-export default function FormSheet({ open, onOpenChange }: FormSheetProps) {
+export default function FormSheet({ open, onOpenChange, service }: FormSheetProps) {
 
     const [selectedService, setSelectedService] = React.useState<"websites" | "mobile_apps" | "desktop_apps">("websites");
     const [date, setDate] = React.useState<Date>()
+    const [openPop, setOpenPop] = React.useState(false)
+
+    useEffect(() => {
+        setSelectedService(service)
+    }, [service])
 
     return (
         <Sheet open={open} onOpenChange={onOpenChange}>
@@ -190,18 +196,16 @@ export default function FormSheet({ open, onOpenChange }: FormSheetProps) {
                                         >
                                             Prazo de Entrega
                                         </Label>
-                                        <Popover>
-                                            <PopoverTrigger className={'w-full'}>
-                                                <Button
-                                                    variant="outline"
-                                                    data-empty={!date}
-                                                    className="data-[empty=true]:text-muted-foreground py-5 shadow-none! w-full justify-between text-left font-normal"
-                                                >
-                                                    {date ? format(date, "PPP") : <span>
-                                                        Selecione uma data
-                                                    </span>}
-                                                    <ChevronDownIcon />
-                                                </Button>
+
+                                        <Popover open={openPop} onOpenChange={setOpenPop}>
+                                            <PopoverTrigger
+                                                data-empty={!date}
+                                                className="data-[empty=true]:text-muted-foreground flex items-center border border-gray-200 py-2.5 px-3 rounded-lg shadow-none! w-full justify-between text-left font-normal"
+                                            >
+                                                {date ? format(date, "PPP") : <span className="text-[14px]">
+                                                    Selecione uma data
+                                                </span>}
+                                                <ChevronDownIcon className="size-4" />
                                             </PopoverTrigger>
                                             <PopoverContent className="w-auto p-0" align="start">
                                                 <Calendar
