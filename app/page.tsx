@@ -272,7 +272,7 @@ export default function Home() {
                         key={index}
                         className=" flex items-center justify-center rounded-full">
                         <Check className="inline-block me-2 text-pallete-1" size={16} />
-                        <h6 className="text-white font-medium text-lg">{item.title}</h6>
+                        <h6 className="text-white pot:font-medium pot:text-lg">{item.title}</h6>
                       </motion.div>
                     ))
                   }
@@ -472,7 +472,7 @@ export default function Home() {
           </div>
 
         </section>
-        <section className="mt-48 pot:max-w-[85%] pot:px-0 px-5 grid grid-cols-1 mx-auto w-full">
+        <section className="mt-48 pot:max-w-[85%] pot:px-0 px-2 grid grid-cols-1 mx-auto w-full">
           <motion.header
             initial={{ y: -20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
