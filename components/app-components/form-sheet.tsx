@@ -13,7 +13,6 @@ import React, { useEffect } from "react";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 import { Button } from "@/components/ui/button"
-
 import {
     Popover,
     PopoverContent,
@@ -80,19 +79,19 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                         <SheetDescription>
                         </SheetDescription>
                     </SheetHeader>
-                    <SheetPanel className="grid grid-cols-[40%_60%] h-full py-4! ps-4! pe-0!">
+                    <SheetPanel className="grid  pot:grid-cols-[40%_60%] h-full py-0! pot:py-4! px-0! pot:ps-4! pot:pe-0!">
                         <header
                             style={{
                                 backgroundImage: "url('/images/form_back.jpg')"
                             }}
-                            className="h-full p-12 flex flex-col justify-between rounded-4xl bg-cover bg-center">
-                            <header className="flex items-center justify-between">
+                            className="h-full pot:flex p-12 hidden flex-col justify-between rounded-4xl bg-cover bg-center">
+                            <div className="flex items-center justify-between">
                                 <svg className="size-16" viewBox="0 0 133 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M99.6081 0L81.5688 38.4314L113.726 40L132.549 0H99.6081Z" fill="white" />
                                     <path d="M83.9215 40H51.7646L69.8039 80H102.745L83.9215 40Z" fill="white" />
                                     <path d="M37.6471 0L0 80H32.9412L69.8039 0H37.6471Z" fill="white" />
                                 </svg>
-                            </header>
+                            </div>
                             <div>
                                 <h6 className="text-white text-4xl font-bold!">
                                     Deixe-nos revolucionar
@@ -121,7 +120,7 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                             </div>
                         </header>
                         <ScrollArea className="flex items-center justify-center">
-                            <div className="max-w-xl w-full pt-14 pb-14">
+                            <div className="max-w-xl w-full  pot:px-0 px-6 pt-10 pot:pt-14 pb-32 pot:pb-14">
                                 <header>
                                     <div className="flex items-center justify-between">
                                         <svg className="size-12" viewBox="0 0 133 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -134,28 +133,28 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                                         </Button>
                                     </div>
 
-                                    <h5 className="pt-7 text-4xl font-bold">
+                                    <h5 className="pt-7 text-3xl pot:text-4xl font-bold">
                                         Soliciar Orçamento
                                     </h5>
                                     <p className="pt-2 text-[16px] text-gray-600">
                                         Preencha o formulário abaixo para receber um orçamento personalizado para o seu projeto. Nossa equipe entrará em contato com você em breve!
                                     </p>
 
-                                    <div className="grid gap-3 grid-cols-3 rounded-md bg-gray-100 p-1 mt-12 ">
+                                    <div className="grid gap-3 grid-cols-1 ret:grid-cols-3 rounded-md bg-gray-100 p-1 mt-12 ">
                                         {
                                             typeService.map((item) => (
                                                 <button
                                                     key={item.label}
                                                     type="button"
                                                     onClick={() => setSelectedService(item.label as "websites" | "mobile_apps" | "desktop_apps")}
-                                                    className={`cursor-pointer text-[15px] px-4 py-2.5 transition-all rounded-md hover:opacity-65 ${selectedService === item.label ? 'bg-white border text-pallete-1 border-pallete-1/30 font-semibold' : ''}`}>
+                                                    className={`cursor-pointer text-[15px] px-4 py-2.5  rounded-md hover:opacity-80 ${selectedService === item.label ? 'bg-white border text-pallete-1 border-pallete-1/30 font-semibold' : ''}`}>
                                                     {item.title}
                                                 </button>
                                             ))
                                         }
                                     </div>
                                 </header>
-                                <div className="grid grid-cols-2 gap-y-8 gap-x-4 mt-8">
+                                <div className="grid ret:grid-cols-2 gap-y-8 gap-x-4 mt-8">
                                     <div className="flex flex-col items-start gap-4">
                                         <Label htmlFor={'name'} className="font-semibold">
                                             Nome Completo
@@ -172,7 +171,7 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                                             className={'py-1.5! shadow-none!'}
                                             id="email" type="text" placeholder="exemplo@dominio.com" />
                                     </div>
-                                    <div className="flex col-span-2 flex-col items-start gap-4">
+                                    <div className="flex pot:col-span-2 flex-col items-start gap-4">
                                         <Label htmlFor={'company'} className="font-semibold">
                                             Empresa (Opcional)
                                         </Label>
@@ -180,7 +179,7 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                                             className={'py-1.5! shadow-none!'}
                                             id="company" type="text" placeholder="Nome da empresa" />
                                     </div>
-                                    <div className="flex flex-col items-start col-span-2 gap-4">
+                                    <div className="flex flex-col items-start pot:col-span-2 gap-4">
                                         <Label htmlFor={'project-description'} className="font-semibold">
                                             Funcionalidades do Projeto
                                         </Label>
@@ -260,7 +259,7 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                                             <InputGroupInput id="first-reference" placeholder="website.com" className="pl-0.5!" />
                                         </InputGroup>
                                     </div>
-                                    <div className="col-span-2 flex items-center justify-end">
+                                    <div className="pot:col-span-2 flex items-center justify-end">
                                         <Button className="px-8 font-semibold hover:bg-pallete-1/80! transition-all! bg-pallete-1 rounded-full  py-6 shadow-none! border-none!" type="submit">
                                             Enviar Proposta
                                         </Button>
