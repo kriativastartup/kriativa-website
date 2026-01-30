@@ -18,6 +18,16 @@
   src: url("./fonts/airb2.otf") format("opentype");
 }
 
+body {
+ font-family: var(--font-inter), Arial, Helvetica, sans-serif !important;
+}
+
+@media  screen and (min-width: 56.25rem) {
+  body {
+    font-family: "Airb", Arial, Helvetica, sans-serif;
+  }
+}
+
 @theme inline {
   --breakpoint-smaller: 23rem;
   --breakpoint-small: 37.4375rem;
@@ -29,6 +39,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-poppins: var(--font-poppins);
   --color-pallete-1: #5e61fa;
   --color-pallete-2: #8c52ff;
   --color-pallete-3: #000000;
@@ -39,6 +51,7 @@
   --font-airblight: "Airb Light", Arial, Helvetica, sans-serif;
   --font-airb-med: "Airb Med", Arial, Helvetica, sans-serif;
   --font-inter: var(--font-inter);
+  --font-poppins: var(--font-poppins);
   --animate-skeleton: skeleton 2s -1s infinite linear;
   --color-warning-foreground: var(--warning-foreground);
   --color-warning: var(--warning);
@@ -90,13 +103,11 @@
   }
 }
 
-body {
-  font-family: "Airb", Arial, Helvetica, sans-serif;
-}
-
 .inter {
   font-family: var(--font-inter);
 }
+
+
 p {
   font-family: var(--font-inter);
 }
@@ -141,6 +152,7 @@ p {
   --success-foreground: var(--color-emerald-700);
   --warning: var(--color-amber-500);
   --warning-foreground: var(--color-amber-700);
+  --font-sans: var(--font-poppins);
 }
 
 .dark {
@@ -185,14 +197,15 @@ p {
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+ 
+
   body {
-    @apply bg-background text-foreground;
+    @apply antialiased bg-background text-foreground;
   }
 }
 
+
 button {
   cursor: pointer !important;
+  font-family: var(--font-inter);
 }

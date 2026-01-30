@@ -37,7 +37,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
 
           className="flex fixed top-0 left-0 bg-white z-50 w-full items-center justify-around py-3 border-b border-gray-200">
-          <nav className="pot:max-w-[85%] pot:px-0 px-4 mx-auto w-full flex items-center justify-between">
+          <nav className="pot:max-w-[85%] pot:px-0 py-2 px-6 mx-auto w-full flex items-center justify-between">
             <div className="flex items-end gap-16">
               <Image
                 src="/icons/simple_color_1.svg"
@@ -62,14 +62,14 @@ export default function Home() {
               </button>
               <button
                 onClick={() => setOpen(true)}
-                className="px-4 transition-all hover:bg-pallete-1/80 bg-pallete-1 text-white text-[14px] font-airblight font-semibold py-2.5 rounded-full">
+                className="px-4 pot:inline-flex hidden transition-all hover:bg-pallete-1/80 bg-pallete-1 text-white text-[14px] font-airblight font-semibold py-2.5 rounded-full">
                 Solicitar Orçamento
               </button>
             </div>
           </nav>
         </motion.div>
 
-        <section className="max-w-[85%] mx-auto grid gap-14 items-start pot:grid-cols-[63%_32%] mt-32 pot:mt-48">
+        <section className="pot:max-w-[85%] pot:px-0 px-6 mx-auto grid gap-14 items-center justify-center grid-cols-1 pot:grid-cols-[63%_32%] mt-32 pot:mt-48">
           <div>
             <motion.div
               initial={{ y: -20, opacity: 0 }}
@@ -94,7 +94,7 @@ export default function Home() {
               viewport={{
                 once: false
               }}
-              className="pot:text-6xl ret:text-5xl text-4xl font-bold font-airb-med">
+              className="pot:text-6xl ret:text-5xl text-4xl font-bold">
               Transformamos ideias em soluções digitais de alto impacto
             </motion.h1>
             <motion.div
@@ -129,29 +129,30 @@ export default function Home() {
               </button>
             </motion.div>
           </div>
-          <section className="relative flex items-start justify-start">
-            <AnimatePresence mode="wait">
+          <section className="relative   w-full">
+            <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={current.image}
-                initial={{ x: 80, opacity: 0 }}
+                initial={{ x: -80, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -80, opacity: 0 }}
+                exit={{ x: 80, opacity: 0 }}
                 transition={{ duration: 0.45, ease: "easeInOut" }}
-                className="relative w-full"
+                className="relative flex items-center pot:items-start pot:justify-start justify-center flex-col w-full"
               >
-                <Image
-                  src={current.image}
-                  alt={current.label}
-                  width={600}
-                  height={300}
-                  priority
-                  className="rounded-2xl"
-                />
+                <div className="relative w-full pot:w-[24rem] h-100 pot:h-120">
+                  <Image
+                    src={current.image}
+                    alt={current.label}
+                    fill
+                    className="pot:object-cover rounded-2xl"
+                    sizes="384px"
+                  />
+                </div>
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className={`px-4 py-3 rounded-full absolute pot:bottom-32 pot:mt-0 mt-3  pot:-left-20 ${current.bg}`}
+                  className={`px-4 py-3 rounded-full pot:absolute pot:bottom-36 pot:mt-0 mt-3  pot:-left-28 ${current.bg}`}
                 >
                   <p className="text-white font-semibold text-[15px] flex items-center">
                     <Icon className="me-2 stroke-3" size={18} />
@@ -414,7 +415,7 @@ export default function Home() {
           }}
           className="pot:max-w-[85%] w-[95%] overflow-hidden rounded-3xl pot:h-96 bg-cover bg-center my-36 mx-auto">
           <div className="w-full p-10 pot:p-14 gap-10  h-full backdrop-blur-lg rounded-4xl flex flex-wrap justify-between items-center">
-            <header className="pot:max-w-xl">
+            <header className="pot:max-w-xl w-full">
               <motion.h5
                 initial={{ y: -20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
@@ -422,7 +423,7 @@ export default function Home() {
                 viewport={{
                   once: false
                 }}
-                className="pot:text-5xl text-4xl text-white whitespace-nowrap font-semibold">
+                className="pot:text-5xl text-3xl ret:text-4xl text-white whitespace-nowrap font-semibold">
                 Processo de<br />  Desenvolvimento
               </motion.h5>
               <motion.h6
@@ -446,7 +447,7 @@ export default function Home() {
                     viewport={{
                       once: false
                     }}
-                    key={index} className="flex items-center pb-4 border-white/15 backdrop-blur-2xl pot:justify-between border-b gap-6">
+                    key={index} className="flex items-center pb-4 border-white/15 pot:justify-between border-b gap-6">
                     <div className="pot:inline-flex hidden" />
                     <div className="flex flex-col pot:text-end pot:items-end">
                       <h4 className="font-semibold text-white text-xl">
@@ -472,7 +473,7 @@ export default function Home() {
               once: false
             }}
             className="pot:px-14 text-center mx-auto  max-w-5xl">
-            <h5 className="pot:text-5xl text-4xl font-bold ">
+            <h5 className="pot:text-5xl text-3xl ret:text-4xl font-bold ">
               Escolha a inovação. Escolha a Kriativuz.
             </h5>
           </motion.header>
