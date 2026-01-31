@@ -17,7 +17,7 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % imagesSlice.length);
-    }, 4000);
+    }, 4000); 
 
     return () => clearInterval(interval);
   }, []);
@@ -37,13 +37,13 @@ export default function Home() {
           transition={{ duration: 0.5 }}
 
           className="flex fixed top-0 left-0 bg-white z-50 w-full items-center justify-around py-3 border-b border-gray-200">
-          <nav className="pot:max-w-[85%] pot:px-0 py-2 px-6 mx-auto w-full flex items-center justify-between">
+          <nav className="pot:max-w-[85%] pot:px-0 py-1 px-6 mx-auto w-full flex items-center justify-between">
             <div className="flex items-end gap-16">
               <Image
                 src="/icons/simple_color_1.svg"
                 alt="Kriativa Logo"
                 width={150}
-                height={50}
+                height={0}
                 className="h-auto w-32  object-contain"
               />
               <div className="pot:flex hidden items-center justify-center gap-14">
@@ -77,7 +77,7 @@ export default function Home() {
           </nav>
         </motion.div>
 
-        <section className="pot:max-w-[85%] pot:px-0 ret:px-10 px-6 mx-auto grid gap-14 items-center justify-center grid-cols-1 pot:grid-cols-[63%_32%] mt-32 pot:mt-48">
+        <section className="pot:max-w-[85%] pot:px-0 ret:px-10 px-6 mx-auto grid gap-14 items-center justify-center grid-cols-1 pot:grid-cols-[63%_32%] mt-32 pot:mt-40">
           <div>
             <motion.div
               initial={{ y: -20, opacity: 0 }}
@@ -212,7 +212,6 @@ export default function Home() {
                 viewport={{
                   once: false
                 }}
-
                 className="w-full border-white/20" />
             </header>
             <div className="w-full flex gap-20 flex-wrap items-start justify-between">
