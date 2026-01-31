@@ -19,7 +19,7 @@
 }
 
 body {
- font-family: var(--font-inter), Arial, Helvetica, sans-serif !important;
+ font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
 @media  screen and (min-width: 56.25rem) {

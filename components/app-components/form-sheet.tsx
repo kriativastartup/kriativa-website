@@ -79,7 +79,7 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                         <SheetDescription>
                         </SheetDescription>
                     </SheetHeader>
-                    <SheetPanel className="grid  pot:grid-cols-[40%_60%] h-full py-0! pot:py-4! px-0! pot:ps-4! pot:pe-0!">
+                    <SheetPanel className="grid grid-cols-1  pot:grid-cols-[40%_60%] h-full py-0! pot:py-4! px-0! pot:ps-4! pot:pe-0!">
                         <header
                             style={{
                                 backgroundImage: "url('/images/form_back.jpg')"
@@ -120,7 +120,7 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                             </div>
                         </header>
                         <ScrollArea className="flex items-center justify-center">
-                            <div className="max-w-xl w-full  pot:px-0 px-6 pt-10 pot:pt-14 pb-32 pot:pb-14">
+                            <div className="pot:max-w-xl ret:max-w-2xl w-full  pot:px-0 px-6 pt-10 pot:pt-14 pb-32 pot:pb-14">
                                 <header>
                                     <div className="flex items-center justify-between">
                                         <svg className="size-12" viewBox="0 0 133 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -147,7 +147,7 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                                                     key={item.label}
                                                     type="button"
                                                     onClick={() => setSelectedService(item.label as "websites" | "mobile_apps" | "desktop_apps")}
-                                                    className={`cursor-pointer text-[15px] px-4 py-2.5  rounded-md hover:opacity-80 ${selectedService === item.label ? 'bg-white border text-pallete-1 border-pallete-1/30 font-semibold' : ''}`}>
+                                                    className={`cursor-pointer whitespace-nowrap text-[15px] px-4 py-2.5  rounded-md hover:opacity-80 ${selectedService === item.label ? 'bg-white border text-pallete-1 border-pallete-1/30 font-semibold' : ''}`}>
                                                     {item.title}
                                                 </button>
                                             ))
@@ -171,7 +171,7 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                                             className={'py-1.5! shadow-none!'}
                                             id="email" type="text" placeholder="exemplo@dominio.com" />
                                     </div>
-                                    <div className="flex pot:col-span-2 flex-col items-start gap-4">
+                                    <div className="flex ret:col-span-2 flex-col items-start gap-4">
                                         <Label htmlFor={'company'} className="font-semibold">
                                             Empresa (Opcional)
                                         </Label>
@@ -179,7 +179,7 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                                             className={'py-1.5! shadow-none!'}
                                             id="company" type="text" placeholder="Nome da empresa" />
                                     </div>
-                                    <div className="flex flex-col items-start pot:col-span-2 gap-4">
+                                    <div className="flex flex-col items-start ret:col-span-2 gap-4">
                                         <Label htmlFor={'project-description'} className="font-semibold">
                                             Funcionalidades do Projeto
                                         </Label>
@@ -259,7 +259,7 @@ export default function FormSheet({ open, onOpenChange, service }: FormSheetProp
                                             <InputGroupInput id="first-reference" placeholder="website.com" className="pl-0.5!" />
                                         </InputGroup>
                                     </div>
-                                    <div className="pot:col-span-2 flex items-center justify-end">
+                                    <div className="ret:col-span-2 flex items-center justify-end">
                                         <Button className="px-8 font-semibold hover:bg-pallete-1/80! transition-all! bg-pallete-1 rounded-full  py-6 shadow-none! border-none!" type="submit">
                                             Enviar Proposta
                                         </Button>

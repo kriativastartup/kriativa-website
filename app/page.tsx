@@ -56,20 +56,20 @@ export default function Home() {
                 }
               </div>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-7 pot:gap-4">
               <button className="px-4 pot:inline-flex hidden bg-white text-black  border-gray-200 text-[14px] font-airblight font-semibold py-2.5 rounded-full">
                 Contacte-nos
               </button>
               <button
                 onClick={() => setOpen(true)}
-                className="px-4 pot:inline-flex hidden transition-all hover:bg-pallete-1/80 bg-pallete-1 text-white text-[14px] font-airblight font-semibold py-2.5 rounded-full">
+                className="px-4 ret:inline-flex hidden transition-all hover:bg-pallete-1/80 bg-pallete-1 text-white text-[14px] font-airblight font-semibold py-2.5 rounded-full">
                 Solicitar Orçamento
               </button>
-              <button>
+              <button className="pot:hidden inline-flex text-pallete-1 transition-all hover:text-pallete-1/60">
                 <svg xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                  className="icon size-7 text-pallete-1 icon-tabler icons-tabler-outline icon-tabler-menu">
+                  className="icon size-7  icon-tabler icons-tabler-outline icon-tabler-menu">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M4 8l16 0" /><path d="M4 16l16 0" /></svg>
               </button>
@@ -77,7 +77,7 @@ export default function Home() {
           </nav>
         </motion.div>
 
-        <section className="pot:max-w-[85%] pot:px-0 px-6 mx-auto grid gap-14 items-center justify-center grid-cols-1 pot:grid-cols-[63%_32%] mt-32 pot:mt-48">
+        <section className="pot:max-w-[85%] pot:px-0 ret:px-10 px-6 mx-auto grid gap-14 items-center justify-center grid-cols-1 pot:grid-cols-[63%_32%] mt-32 pot:mt-48">
           <div>
             <motion.div
               initial={{ y: -20, opacity: 0 }}
@@ -86,6 +86,7 @@ export default function Home() {
               viewport={{
                 once: false
               }}
+              className="flex flex-col w-full items-center pot:items-start"
             >
               <button
                 onClick={() => setOpen(true)}
@@ -102,7 +103,7 @@ export default function Home() {
               viewport={{
                 once: false
               }}
-              className="pot:text-6xl ret:text-5xl text-4xl font-bold">
+              className="pot:text-6xl pot:text-start text-center ret:text-5xl text-4xl font-bold">
               Transformamos ideias em soluções digitais de alto impacto
             </motion.h1>
             <motion.div
@@ -112,7 +113,7 @@ export default function Home() {
               viewport={{
                 once: false
               }}
-              className="max-w-3xl pt-7">
+              className="max-w-3xl pt-7 pot:text-start text-center">
               <p className="font-airb-med text-zinc-600 text-lg pot:text-xl">
                 Criamos websites, aplicativos mobile e sistemas desktop pensados para performance, design e crescimento do seu negócio.
                 Impulsione sua presença digital conosco agora e hoje!
@@ -125,7 +126,7 @@ export default function Home() {
               viewport={{
                 once: false
               }}
-              className="flex mt-10 flex-wrap items-center gap-4">
+              className="flex mt-10 flex-wrap pot:justify-start justify-center items-center gap-4">
               <button
                 onClick={() => setOpen(true)}
                 className="px-5 ret:w-auto w-full text-white transition-all hover:bg-pallete-1/80 text-md flex items-center justify-center font-airblight bg-pallete-1  font-semibold py-3 rounded-full">
@@ -147,7 +148,7 @@ export default function Home() {
                 transition={{ duration: 0.45, ease: "easeInOut" }}
                 className="relative flex items-center pot:items-start pot:justify-start justify-center flex-col w-full"
               >
-                <div className="relative w-full pot:w-[24rem] h-100 pot:h-120">
+                <div className="relative ret:w-120 w-full pot:w-[24rem] h-100 ret:h-120">
                   <Image
                     src={current.image}
                     alt={current.label}
@@ -422,7 +423,7 @@ export default function Home() {
             backgroundImage: `url('/images/back_ope2.jpg')`
           }}
           className="pot:max-w-[85%] w-[95%] overflow-hidden rounded-3xl pot:h-96 bg-cover bg-center my-36 mx-auto">
-          <div className="w-full p-10 pot:p-14 gap-10  h-full backdrop-blur-lg rounded-4xl flex flex-wrap justify-between items-center">
+          <div className="w-full p-10 pot:p-14 gap-10  h-full backdrop-blur-lg rounded-4xl flex pot:flex-nowrap flex-wrap justify-between items-center">
             <header className="pot:max-w-xl w-full">
               <motion.h5
                 initial={{ y: -20, opacity: 0 }}
@@ -445,7 +446,7 @@ export default function Home() {
                 Criamos soluções digitais através de um processo estruturado e eficiente, garantindo qualidade e satisfação em cada etapa.
               </motion.h6>
             </header>
-            <footer className="grid grid-cols-1 ret:grid-cols-2 gap-5 pot:grid-cols-3">
+            <footer className="grid grid-cols-1 gap-5 ret:grid-cols-2">
               {
                 processSteps.map((item, index) => (
                   <motion.div
