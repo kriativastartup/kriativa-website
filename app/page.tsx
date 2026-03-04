@@ -42,6 +42,23 @@ export default function Home() {
   const current = imagesSlice[index];
   const Icon = current.icon;
 
+  const scrollToElement = (id: string) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const navbar = document.querySelector("header");
+    const navbarHeight = navbar ? navbar.clientHeight : 0;
+
+    const elementPosition =
+      element.getBoundingClientRect().top + window.scrollY;
+    const offsetPosition = elementPosition - navbarHeight - 10; // 10px extra de respiro
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div>
       <header>
@@ -58,18 +75,30 @@ export default function Home() {
         >
           <nav className="pot:max-w-[85%] pot:px-0 py-1 px-6 mx-auto w-full flex items-center justify-between">
             <div className="flex items-end gap-16">
-              <Image
-                src="/icons/simple_color_1.svg"
-                alt="Kriativa Logo"
-                width={150}
-                height={0}
-                className="h-auto w-32  object-contain"
-              />
+              <Link
+                href="/"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToElement("banner");
+                }}
+              >
+                <Image
+                  src="/icons/simple_color_1.svg"
+                  alt="Kriativa Logo"
+                  width={150}
+                  height={0}
+                  className="h-auto w-32  object-contain"
+                />
+              </Link>
               <div className="pot:flex hidden items-center justify-center gap-14">
                 {navbarItemsLinks.map((item) => (
                   <Link
                     key={item.name}
-                    href={item.href}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToElement(item.href);
+                    }}
                     className="text-[15px] font-airblight font-semibold! text-gray-900 hover:text-gray-900"
                   >
                     {item.name}
@@ -78,9 +107,11 @@ export default function Home() {
               </div>
             </div>
             <div className="flex items-center gap-7 pot:gap-4">
-              <button className="px-4 pot:inline-flex hidden bg-white text-black  border-gray-200 text-[14px] font-airblight font-semibold py-2.5 rounded-full">
-                Contacte-nos
-              </button>
+              <Link href={"mailto:comercial@kriativuz.com"} target="_blank">
+                <button className="px-4 pot:inline-flex hidden bg-white text-black  border-gray-200 text-[14px] font-airblight font-semibold py-2.5 rounded-full">
+                  Contacte-nos
+                </button>
+              </Link>
               <button
                 onClick={() => setOpen(true)}
                 className="px-4 ret:inline-flex hidden transition-all hover:bg-pallete-1/80 bg-pallete-1 text-white text-[14px] font-airblight font-semibold py-2.5 rounded-full"
@@ -107,7 +138,10 @@ export default function Home() {
           </nav>
         </motion.div>
 
-        <section className="pot:max-w-[85%] pot:px-0 ret:px-10 px-6 mx-auto grid gap-14 items-center justify-center grid-cols-1 pot:grid-cols-[63%_32%] mt-32 pot:mt-40">
+        <section
+          id="banner"
+          className="pot:max-w-[85%] pot:px-0 ret:px-10 px-6 mx-auto grid gap-14 items-center justify-center grid-cols-1 pot:grid-cols-[63%_32%] mt-32 pot:mt-40"
+        >
           <div>
             <motion.div
               initial={{ y: -20, opacity: 0 }}
@@ -251,7 +285,10 @@ export default function Home() {
                 className="w-full border-white/20"
               />
             </header>
-            <div className="w-full flex gap-20 flex-wrap items-start justify-between">
+            <div
+              id="about"
+              className="w-full flex gap-20 flex-wrap items-start justify-between"
+            >
               <div className="max-w-xl">
                 <motion.h3
                   initial={{ x: 50, opacity: 0 }}
@@ -281,7 +318,7 @@ export default function Home() {
                   </h6>
                   <Link href={"/about"}>
                     <button className="px-5 mt-9 transition-all hover:bg-pallete-2/80 text-white  text-md flex items-center justify-center font-airblight bg-pallete-2  font-semibold py-3 rounded-full">
-                      Saber mais
+                      Quem realmente somos?
                     </button>
                   </Link>
                 </motion.div>
@@ -327,7 +364,7 @@ export default function Home() {
           </section>
         </section>
 
-        <section className="mt-36">
+        <section id="services" className="mt-36">
           <motion.header
             initial={{ y: -20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -481,6 +518,7 @@ export default function Home() {
         </section>
 
         <section
+          id="development"
           style={{
             backgroundImage: `url('/images/back_ope2.jpg')`,
           }}
@@ -612,86 +650,101 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-gray-100 pt-6 rounded-base mt-16 shadow-xs">
-        <div className="w-full pot:max-w-[85%] pot:p-4 p-10 mx-auto  md:py-8">
-          <div className="flex items-center flex-wrap gap-10 justify-between">
-            <div className="flex pot:items-end gap-x-10 gap-y-3 pot:flex-row flex-col">
-              <Link
-                href="https://kriativuz.com/"
-                className="flex items-center mb-4 pot:mb-0 space-x-3 rtl:space-x-reverse"
-              >
-                <Image
-                  src="/icons/simple_color_1.svg"
-                  alt="Kriativa Logo"
-                  width={150}
-                  height={50}
-                  className="h-auto w-32  object-contain"
-                />
-              </Link>
-              <div className="flex items-end gap-5">
+      <footer className="bg-gray-100 w-[95%] px-5 mb-6 mx-auto rounded-3xl pt-6 rounded-base mt-16 shadow-xs">
+        <div className="w-full pot:p-4 p-10 mx-auto  md:py-8">
+          <div className="grid grid-cols-[60%_20%_20%] gap-3">
+            <div className="">
+              <div className="flex pot:items-end gap-x-10 gap-y-3 pot:flex-row flex-col">
                 <Link
-                  href="#"
-                  className="text-pallete-1 hover:text-pallete-3 transition-all"
+                  href="https://kriativuz.com/"
+                  className="flex items-center mb-4 pot:mb-0 space-x-3 rtl:space-x-reverse"
                 >
-                  <Linkedin className="size-6" />
+                  <Image
+                    src="/icons/simple_color_1.svg"
+                    alt="Kriativa Logo"
+                    width={150}
+                    height={50}
+                    className="h-auto w-32  object-contain"
+                  />
                 </Link>
-                <Link
-                  href="#"
-                  className="text-pallete-1 hover:text-pallete-3 transition-all"
-                >
-                  <Instagram className="size-5" />
-                </Link>
+                <div className="flex items-end gap-5">
+                  <Link
+                    href="#"
+                    className="text-pallete-1 hover:text-pallete-3 transition-all"
+                  >
+                    <Linkedin className="size-6" />
+                  </Link>
+                  <Link
+                    href="#"
+                    className="text-pallete-1 hover:text-pallete-3 transition-all"
+                  >
+                    <Instagram className="size-5" />
+                  </Link>
+                </div>
+              </div>
+              <div className="pt-6 flex flex-col gap-3 justify-start">
+                <div className="max-w-md">
+                  <p className="text-sm  text-zinc-800">
+                    Rua Comandante Kwenha, Casa n.º 36/37, Bairro Maculusso,
+                    Município da Ingombota, Luanda - Angola
+                  </p>
+                </div>
+                <p className="text-sm font-medium">
+                  it.tech@kriativuz.com / comercial@kriativuz.com
+                </p>
+                <p className="block text-sm text-zinc-800 text-body">
+                  © 2025
+                  <Link href="/" className="hover:underline">
+                    Kriativuz
+                  </Link>
+                  . Todos os direitos reservados.
+                </p>
               </div>
             </div>
-            <ul className="flex flex-wrap items-center gap-6 mb-6 text-sm font-medium text-body sm:mb-0">
-              <li>
+            <div>
+              <h6 className="font-semibold">Navegação</h6>
+              <div className="flex flex-col mt-5 gap-3">
+                {navbarItemsLinks.slice(1).map((item) => (
+                  <Link
+                    key={item.name}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToElement(item.href);
+                    }}
+                    className="text-gray-700 hover:text-gray-900 transition-all text-[14px]"
+                  >
+                    <p className="text-sm">{item.name}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h6 className="font-semibold">Legal</h6>
+              <div className="flex flex-col mt-5 gap-3">
                 <Link
-                  href={"/"}
-                  className="hover:underline font-semibold me-4 md:me-6 transition-all text-zinc-700 hover:text-black"
+                  href="/terms"
+                  className="text-gray-700 hover:text-gray-900 transition-all text-[14px]"
                 >
-                  Quem Somos
+                  <p className="text-sm">Termos de Serviço</p>
                 </Link>
-              </li>
-              <li>
                 <Link
-                  href={"/"}
-                  className="hover:underline font-semibold  me-4 md:me-6 transition-all text-zinc-700 hover:text-black"
+                  href="/policy"
+                  className="text-gray-700 hover:text-gray-900 transition-all text-[14px]"
                 >
-                  Serviços
+                  <p className="text-sm">Política de Privacidade</p>
                 </Link>
-              </li>
-              <li>
                 <Link
                   href="#"
-                  className="hover:underline font-semibold text-zinc-700  text-[14px] transition-all hover:text-black"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpen(true);
+                  }}
+                  className="text-gray-700 hover:text-gray-900 transition-all text-[14px]"
                 >
-                  Solicitar Orçamento
+                  <p className="text-sm">Solicitar Orçamento</p>
                 </Link>
-              </li>
-            </ul>
-          </div>
-          <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
-          <div className="w-full flex flex-wrap gap-8 items-center justify-between">
-            <span className="block text-sm text-body sm:text-center">
-              © 2025
-              <Link href="/" className="hover:underline">
-                Kriativuz
-              </Link>
-              . Todos os direitos reservados.
-            </span>
-            <div className="flex items-center gap-10 justify-end">
-              <Link
-                href="#"
-                className="hover:underline font-semibold text-zinc-700 text-[14px] transition-all hover:text-black"
-              >
-                Termos de Serviço
-              </Link>
-              <Link
-                href="#"
-                className="hover:underline font-semibold text-zinc-700 text-[14px] transition-all hover:text-black"
-              >
-                Contacte-nos
-              </Link>
+              </div>
             </div>
           </div>
         </div>

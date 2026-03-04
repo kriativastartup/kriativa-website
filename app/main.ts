@@ -1,10 +1,10 @@
 import { Globe, MonitorDot, Proportions } from "lucide-react";
 
 const navbarItemsLinks = [
-  { name: "Início", href: "#" },
-  { name: "Quem Somos", href: "#" },
-  { name: "Serviços", href: "#" },
-  { name: "Como Trabalhamos", href: "#" },
+  { name: "Início", href: "banner" },
+  { name: "Quem Somos", href: "about" },
+  { name: "Serviços", href: "services" },
+  { name: "Como Trabalhamos", href: "development" },
 ];
 
 const processSteps = [
